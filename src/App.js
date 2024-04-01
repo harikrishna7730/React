@@ -1,17 +1,19 @@
 
-import './App.css';
-// import Lists from './componets/list';
-// import Items from './componets/listItems';
-// import Image from './componets/images';
-// import Table from './componets/table/table';
-//  import ButtonComponent from './componets/button/button';
-//  import { EmployesList } from './developerslist/list';
-import { TextStyle } from './componets/styles/inlinestyle';
+   import Navbarr from './componets/styles/sass';
+   import Modelpage from './componets/styles/webpage/model';
+   import CardPage from './componets/styles/webpage/cards';
+   import Forms from './componets/styles/webpage/from';
 
 function App() {
   return (
     <div className="App">
     {/* <TextStyle/> */}
+    <Navbarr/>
+ 
+   {/* <CaroselPage/> */}
+   <Modelpage/>
+   <CardPage/>
+   <Forms/>
     </div>
   );
 }
