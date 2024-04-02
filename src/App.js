@@ -2,6 +2,7 @@
    import Navbarr from './componets/styles/sass';
    import Modelpage from './componets/styles/webpage/model';
    import CardPage from './componets/styles/webpage/cards';
+   import CaroselPage from './componets/styles/webpage/carosel';
    import Forms from './componets/styles/webpage/from';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     {/* <TextStyle/> */}
     <Navbarr/>
  
-   {/* <CaroselPage/> */}
+   <CaroselPage/>
    <Modelpage/>
    <CardPage/>
    <Forms/>
