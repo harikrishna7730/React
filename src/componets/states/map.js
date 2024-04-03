@@ -5,17 +5,36 @@ import { Component } from "react";
 class Mapp extends Component{
 
 state={
-     array:["apple","banana","pinapple","popaya","grapes","orangee"]
+     array:["apple","banana","orangee","pinapple","grapes"]
+}
+
+
+
+Increment = ()=>{
+    this.setState(
+        {
+            
+            array:this.state.array.map((index)=>this.state.array[1])
+           
+        }
+    )
+}
+
+Decrement = ()=>{
+    this.setState(
+        {
+            array:this.state.array.map((index)=>this.state.array[0])
+            
+        }
+    )
 }
     render(){
 
         return(
             <>
-            {
-                this.array.map((val)=>{
-                    <h2>{val}</h2>
-                })
-            }
+            <button onClick={this.Increment}>Increment Fruit</button>
+            <button onClick={this.Decrement}>Decrement Fruit</button>
+             <h2>{this.state.array[0]}</h2>
             </>
         )
     }
