@@ -1,30 +1,40 @@
 import { Component } from "react";
+// import { array } from "yargs";
+// import { array } from "yargs";
 
 
 
 class Mapp extends Component{
 
 state={
-     array:["apple","banana","orangee","pinapple","grapes"]
+     arr:["apple","banana","orangee","pinapple","grapes"]
 }
 
 
 
 Increment = ()=>{
+    const newFriuts=[...this.state.arr,"veeresh"]
+    
     this.setState(
         {
             
-            array:this.state.array.map((index)=>this.state.array[1])
+            arr:newFriuts
            
+        },()=>{
+            console.log(this.state.arr)
         }
     )
 }
 
 Decrement = ()=>{
+    const ab=[...this.state.arr]
+    ab.pop()
     this.setState(
         {
-            array:this.state.array.map((index)=>this.state.array[0])
+            arr:ab
             
+        },()=>{
+            console.log(this.state.arr)
         }
     )
 }
@@ -34,7 +44,15 @@ Decrement = ()=>{
             <>
             <button onClick={this.Increment}>Increment Fruit</button>
             <button onClick={this.Decrement}>Decrement Fruit</button>
-             <h2>{this.state.array[0]}</h2>
+             <h2>{this.state.arr[0]}</h2>
+
+             {
+                this.state.arr.map((val)=>{
+                    return(
+                        <h1>{val}</h1>
+                    )
+                })
+             }
             </>
         )
     }
