@@ -8,6 +8,7 @@ import "./App.css"
 //   import ButtonPage from "./componets/states/button";
 // import Counter from "./componets/states/counter";
 // import Fruites from "./componets/states/fruits";
+// import Table from "./componets/table/table";
 import Mapp from "./componets/states/map";
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
    <Counter/> */}
    {/* <Fruites/> */}
    <Mapp/>
+   {/* <Table/> */}
     </div>
   );
 }
