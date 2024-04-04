@@ -26,11 +26,11 @@ class Dummy extends Component{
 //    state={
 //     products:[]
 //    }
-//    Delete=()=>{
-//   this.setState({
-//     return
-//   })
-   //}
+   Delete=(id)=>{
+  
+   }
+
+   
 }
    
     render(){
