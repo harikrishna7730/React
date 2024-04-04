@@ -1,12 +1,5 @@
-import { Component } from "react";
-// import  img1 from"./states/araku.jpg";
-// import img2 from "./states/hills.avif";
-// import img3 from "./states/hills2.avif"
-import "./states/states.css"
-class Setting extends Component{
 
-    state={
-        item: [{
+var obj=[{
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "price": 109.95,
@@ -125,77 +118,4 @@ class Setting extends Component{
       "rate": 2.9,
       "count": 470
     }
-  }
-]
-};
-
-delete=(id)=>{
- const dltBtn=this.state.item.filter(item=>{
-    return(
-        item.id!==id
-    )
- });
-    this.setState({
-    item:dltBtn
-    })
-}
-Update=(id)=>{
-  const updateItem=this.state.item.map((item)=>{
-   
-        if(item.id==id){
-
-        return(
-            {
-                "id": 10,
-                "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
-                "price": 109,
-                "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
-                "category": "electronics",
-                "image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
-                "rating": {
-                  "rate": 2.9,
-                  "count": 470
-                }
-              }
-        )
-
-        }
-        else{
-            return item
-        }
-
-     
-    
-  });
-  this.setState({
-    item:updateItem
-  })
-}
-
-
-    render(){
-        return(
-         <div className="products">
-          {
-           this.state.item.map(eachObject=>{
-            const{category,image,price}=eachObject;
-                return(
-                    <div  className="card">
-                    <h4>{category}</h4>
-                    <img src={image} alt={category} width={60}/>
-                    <h4>₹{price}</h4>
-                    <div>
-                    <button onClick={()=>this.delete(eachObject.id)}>Delete</button>
-                    <button onClick={()=>this.Update(eachObject.id)}>Update</button>
-                    </div>
-                    </div>
-                )
-            })
-          }
-         </div>
-      )
-    }
-}
-
-
-export default Setting;
+  }]
