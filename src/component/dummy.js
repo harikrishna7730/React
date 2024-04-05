@@ -20,7 +20,7 @@ class Dummy extends Component {
       products: result.data.products,
     });
   };
-
+    //Delete
   Delete=(id)=>{
     const dell=this.state.products.filter(products=>products.id!==id)
         this.setState({
@@ -28,6 +28,7 @@ class Dummy extends Component {
         })
     }
 
+    //update
   Update=(id)=>{
         const upp=this.state.products.map(updateObject=>{
 
@@ -59,7 +60,7 @@ class Dummy extends Component {
   
 
   render() {
-    //console.log(this.state.data.products)
+
     return (
       <>
         <h2 style={{ textAlign: "center" }}>Products Listing</h2>
