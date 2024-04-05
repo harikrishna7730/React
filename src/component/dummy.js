@@ -8,10 +8,12 @@ class Dummy extends Component {
     products: []
   };
 
+  
   componentDidMount() {
     this.FetchData();
   }
 
+  //async and await && axios
   FetchData = async () => {
     const result = await axios.get("https://dummyjson.com/products");
     console.log(result);
