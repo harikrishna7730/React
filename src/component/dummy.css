@@ -1,22 +1,41 @@
+.body{
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfp_rLdvb55bHm8kmFMY7qEmD2aIuwY0GQhexQVRU_HA&s") ;
+}
 .products{
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    margin: 30px;
-    gap: 4px;
+    flex-wrap: wrap;
+    margin: 50px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
 }
 .cards{
-   border: 2px solid black;
-   text-align: center;
-   border-radius: 10px;
-    width: 30%;
-    padding: 4px;
+    width:24%;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all ease-in-out;
+   background-color: rgb(191, 193, 174);
 }
-img{
-    height: 140px;
-    width: 200px;
+.cards:hover{
+     scale: 1.05;
 }
 button{
-    margin-bottom: 10px;
-    margin-left: 15px;
+    margin: 20px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+}
+img{
+    width: 140px;
+    height: 120px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+.spinner{
+    margin-left: 400px;
 }
