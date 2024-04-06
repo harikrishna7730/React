@@ -1,6 +1,4 @@
-.body{
-    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfp_rLdvb55bHm8kmFMY7qEmD2aIuwY0GQhexQVRU_HA&s") ;
-}
+
 .products{
     display: flex;
     flex-direction: row;
