@@ -24,6 +24,9 @@ class Dummy extends Component {
   };
     //Delete
   Delete=(id)=>{
+    // const dlt=this.state.products.filter(products=>{
+    //   return products.id===id
+    // })
     const dell=this.state.products.filter(products=>products.id!==id)
         this.setState({
             products:dell
@@ -40,7 +43,7 @@ class Dummy extends Component {
                         "id": 10,
                         "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
                         "price": 109,
-                        "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+                        "description": "Easy upgrade for faster boot up, host device, OS and application.)",
                         "category": "electronics",
                         "thumbnail": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
                         "rating": {
@@ -87,7 +90,10 @@ class Dummy extends Component {
         )
          :
          (
+          <>
+          <h2>Loading</h2>
           <Spinner/>
+          </>
         )}
       </>
     );
