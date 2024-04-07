@@ -1,84 +1,97 @@
-import axios from "axios";
+import axios from "axios"
 import { Component } from "react";
-import "./dummy.css";
-class DummyData extends Component {
-  state = {
-    products: [],
-    count: 1,
+import "./dummy.css"
+import { toBePartiallyChecked } from "@testing-library/jest-dom/matchers";
+
+
+class Dummy extends Component{
+
+  state={
+    products:[],
     Total:0,
-  };
-  //increment
-  Increment = (id) => {
-    const increase = this.state.count + 1;
-    this.setState({
-      count: increase,
-    });
-  };
+    count:0
+  }
 
-  //decrement
-  Decrement = () => {
-    const decrement = this.state.count - 1;
-    if (decrement >= 0)
-      this.setState({
-        count: decrement,
-      });
-  };
+  componentDidMount(){
+    this.FetchData()
+  }
 
-  //Total cell
-  TotalAmount = () => {
-    const result = this.state.products.reduce((acc, eachObj) => {
-      return acc + eachObj.price;
-    
-    }, 0);
+  FetchData=async ()=>{
+    const result = await axios.get("https://dummyjson.com/products")
     console.log(result)
+
     this.setState({
-      Total: result,
-    });
-  };
-  // side effects(http requests) will come here
-  componentDidMount() {
-    document.title = "Product Listing";
-    this.FetchData();
+      products:result.data.products
+    })
+
+    //total price:
+    const TotalAmount=result.data.products.reduce((acc,val)=>{
+      return acc + val.price 
+    },0)
+    this.setState({
+      Total:TotalAmount
+    })
+
+    const result2=result.data.products.map((val)=>{
+      const data={...val,count:1,Totalprice:val.price}
+      return data
+    })
+
+    this.setState({
+      products:result2
+    })
+
+    //increment
+    const decrement=(id)=>{
+      const Newitem=this.state.products.map((val)=>{
+        if(val.id===id){
+        val.count-=1
+        val.Totalprice = val.price * val.count;
+      return val
+        }else{
+          return val
+        }
+      })
+
+      this.setState({
+        products:Newitem
+      })
+    }
   }
 
-  FetchData = async () => {
-    const result = await axios.get("https://dummyjson.com/products");
-
-    this.setState({
-      products: result.data.products
-    });
-  };
-
-  render() {
-    console.log(this.state.Total);
-    return (
+  render(){
+    console.log(this.state.Total)
+     return(
       <>
-        <h2>Product Listing</h2>
-        <h3>TotalPrice:{this.TotalAmount}</h3>
-
-        {this.state.products.length > 0 ? (
-          <div className="products">
-            {this.state.products.map((eachObject) => {
-              const { title, thumbnail, price } = eachObject;
-              return (
-                <div className="cards" >
-                  <h4>{title}</h4>
-                  <img src={thumbnail} alt={title} />
-                  <h3>₹{price}</h3>
-                  <div>
-                    <button onClick={() => this.Increment(1)}>+</button>
-                    <span>{this.state.count}</span>
-                    <button onClick={() => this.Decrement(1)}>-</button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <h2>Loading</h2>
-        )}
+      <h2>Product Listing</h2>
+      <h2>TotalAmount:{this.state.Total}</h2>
+      {
+        this.state.products.length>0
+        ?
+        <div className="products">
+        {
+          this.state.products.map(eachObj=>{
+            const{title,thumbnail,price,id}=eachObj
+            return(
+              <div className="cards" key={id}>
+              <h3>{title}</h3>
+              <img src={thumbnail} alt={title}/>
+              <h3>Price:{price}</h3> 
+              <h4>count:{this.state.count}</h4>
+              <div>
+                <button >Add</button>
+                <button onClick={this.decrement}>Decrease</button>
+              </div>
+              </div>
+            )
+          })
+        }
+        </div>
+        :
+        <h3>Loading</h3>
+      }
       </>
-    );
-  }
+     )
 }
-export default DummyData;
+}
+export default Dummy
