@@ -1,15 +1,12 @@
 import axios from "axios"
 import { Component } from "react";
 import "./dummy.css"
-import { toBePartiallyChecked } from "@testing-library/jest-dom/matchers";
 
 
 class Dummy extends Component{
 
   state={
-    products:[],
-    Total:0,
-    count:0
+    products:[]
   }
 
   componentDidMount(){
@@ -18,69 +15,98 @@ class Dummy extends Component{
 
   FetchData=async ()=>{
     const result = await axios.get("https://dummyjson.com/products")
-    console.log(result)
 
-    this.setState({
-      products:result.data.products
-    })
-
-    //total price:
-    const TotalAmount=result.data.products.reduce((acc,val)=>{
-      return acc + val.price 
-    },0)
-    this.setState({
-      Total:TotalAmount
-    })
-
-    const result2=result.data.products.map((val)=>{
-      const data={...val,count:1,Totalprice:val.price}
+    const result1=result.data.products.map((val)=>{
+      const data={...val,count:1,TotalPrice:val.price}
       return data
     })
 
     this.setState({
-      products:result2
+      products:result1
     })
+  }
+    //total price:(using reduce)
+    Total=()=>{
+      const TotalAmount=this.data.products.reduce((total,val)=>{
+        return total + val.price 
+      },0)
+      this.setState({
+        TotalPrice:TotalAmount
+      })
+    }
+    
+  
+  
 
     //increment
-    const decrement=(id)=>{
-      const Newitem=this.state.products.map((val)=>{
-        if(val.id===id){
-        val.count-=1
-        val.Totalprice = val.price * val.count;
-      return val
-        }else{
+    IncrementCount=(id)=>{
+      let incre=this.state.products.map((eachObj,index)=>{
+        if(index===id){
+          eachObj.count+=1
+          eachObj.price+=eachObj.TotalPrice
+          return eachObj
+        }
+        else{
+          return eachObj
+        }
+      })
+      this.setState({
+        products:incre
+      })
+    }
+
+    //decrement
+    decrementCount=(id)=>{
+      let decre=this.state.products.map((val,index)=>{
+        if(index===id && val.count>1){
+           val.count-=1
+           val.price-=val.TotalPrice
+           return val
+        }
+        else{
           return val
         }
       })
-
       this.setState({
-        products:Newitem
+        products:decre
       })
     }
-  }
+  
+    //DeleteItem
+     Delete=(i)=>{
+      let DeleteItem=this.state.products.filter((val,index)=>{
+        return index!=i
+        
+      })
+      this.setState({
+        products:DeleteItem
+      })
+     }
+
 
   render(){
     console.log(this.state.Total)
      return(
       <>
       <h2>Product Listing</h2>
-      <h2>TotalAmount:{this.state.Total}</h2>
+      <h2>TotalAmount:{this.Total}</h2>
       {
         this.state.products.length>0
         ?
         <div className="products">
         {
-          this.state.products.map(eachObj=>{
-            const{title,thumbnail,price,id}=eachObj
+          this.state.products.map((eachObj,i)=>{
+            const{title,thumbnail,price,id,count}=eachObj
             return(
               <div className="cards" key={id}>
               <h3>{title}</h3>
+              <button onClick={()=>this.Delete(i)}>Delete</button>
               <img src={thumbnail} alt={title}/>
               <h3>Price:{price}</h3> 
-              <h4>count:{this.state.count}</h4>
+              <h4>count:{count}</h4>
               <div>
-                <button >Add</button>
-                <button onClick={this.decrement}>Decrease</button>
+                <button onClick={()=>this.IncrementCount(i)} >Add</button>
+                <button onClick={()=>this.decrementCount(i)}>Decre</button>
               </div>
               </div>
             )
