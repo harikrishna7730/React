@@ -35,30 +35,47 @@ Hightolow=()=>{
         products:sorting
     })
 }
+//Range 0-500
+Range=()=>{
+    let sorting3=this.state.products.filter(products=>products.price>=100 && products.price<=500);
+    this.setState({
+        products:sorting3
+    })
+};
+
+//Deleteing card
+Delete=(id)=>{
+    const Dell=this.state.products.filter(products=>products.id!=id)
+    this.setState({
+        products:Dell
+    })
+}
 
     render(){
-        
+        console.log(this.sorting3)
         return(
-            <>
-            <h2 style={{textAlign:"center"}}>Products</h2>
+            <div className="main">
+            <h2 style={{textAlign:"center"}}>Products Listing</h2>
             <button onClick={this.Lowtohigh}>Low To High</button>
             <button onClick={this.Hightolow}>High To Low</button>
-        
+            <button onClick={this.Range}>100-500</button>
+            <div className="frontcard"></div>
             <div className="products">
             {
                 this.state.products.map((eachObj)=>{
-                   const{title,thumbnail,price}=eachObj
+                   const{title,thumbnail,price,id}=eachObj
                     return(
-                        <div className="cards">
+                        <div className="cards" key={title}>
                         <h3>{title}</h3>
                         <img src={thumbnail} alt={title}/>
-                        <h3>{price}</h3>
+                        <h3>₹{price}</h3>
+                        <button onClick={()=>this.Delete(id)}>Delete</button>
                         </div>
                     )
                 })
             }
             </div>
-            </>
+            </div>
         )
       
     }
