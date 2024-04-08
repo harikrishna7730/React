@@ -22,11 +22,11 @@ FetchData=async()=>{
             <>
             <h3>Product Listing</h3>
             {
-                this.state.data.products.map(eachObj=>{
-                    const{title,price,thumbnail}=eachObj
+                this.state.products.map((eachObj)=>{
+                   
                     return(
                         <>
-                        <h3>{title}</h3>
+                        <h3>{eachObj.title}</h3>
                         </>
                     )
                 })
