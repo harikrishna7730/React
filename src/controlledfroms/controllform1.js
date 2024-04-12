@@ -18,14 +18,19 @@ const ControlledFrom = () => {
     }
   };
 
+  
+
   const handlepassword = (e) => {
+  
     const password = e.target.value;
     setpassword(password);
-    if (password.trim().length < 6 || !/[!@#$&*]/.test(password)) {
+    const specialCharecters=/[$#@]/.test(password)
+    if (password.trim().length < 6 || !specialCharecters) {
       setpassErr("Enter valid password");
     } else {
       setpassErr(null);
     }
+    console.log(password)
   };
 
   const handleEmail = (e) => {
@@ -54,7 +59,7 @@ const ControlledFrom = () => {
           placeholder="Enter your Name"
         />
         <br />
-        {userErr && <span style={{ color: "white", padding:"0px" , marginBottom:"-5px" }}>Enter valid name</span>}
+        {userErr && <span style={{ color: "red", padding:"0px" , textAlign:"center", marginBottom:"-5px", fontWeight:"bold"}}>Enter valid name</span>}
         <br />
         <input
           type="email"
@@ -71,7 +76,7 @@ const ControlledFrom = () => {
           placeholder="Enter your Password"
         />
         <br />
-        {passErr && <span style={{ color: "white",  padding:"0px", marginBottom:"-5px"}}>Enter valid password</span>}
+        {passErr && <span style={{ color: "red",  padding:"0px", marginBottom:"-5px" , fontWeight:"bold"}}>password must contain any special charecter @#$</span>}
         <br />
         <button type="submit">Submit</button>
       </form>
