@@ -13,7 +13,7 @@ state={
 
 
 Increment = ()=>{
-    const newFriuts=[...this.state.arr,"veeresh"]
+    const newFriuts=[...this.state.arr,"Mango"]
     
     this.setState(
         {
