@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./controlform1.css";
-import img1 from "./45519.png"
 
 const ControlledFrom = () => {
   const [username, setusername] = useState("");
@@ -22,7 +21,7 @@ const ControlledFrom = () => {
   const handlepassword = (e) => {
     const password = e.target.value;
     setpassword(password);
-    if (password.trim().length < 6 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    if (password.trim().length < 6 || !/[!@#$&*]/.test(password)) {
       setpassErr("Enter valid password");
     } else {
       setpassErr(null);
@@ -52,16 +51,16 @@ const ControlledFrom = () => {
           type="text"
           value={username}
           onChange={handleusername}
-          placeholder="Username"
+          placeholder="Enter your Name"
         />
         <br />
-        {userErr && <span style={{ color: "red" }}>Enter valid name</span>}
+        {userErr && <span style={{ color: "white" }}>Enter valid name</span>}
         <br />
         <input
           type="email"
           value={email}
           onChange={handleEmail}
-          placeholder="Email"
+          placeholder="Enter your Email"
         />
         <br />
         <br></br>
@@ -69,10 +68,10 @@ const ControlledFrom = () => {
           type="password"
           value={password}
           onChange={handlepassword}
-          placeholder="Password"
+          placeholder="Enter your Password"
         />
         <br />
-        {passErr && <span style={{ color: "red" }}>Enter valid password</span>}
+        {passErr && <span style={{ color: "white" }}>Enter valid password</span>}
         <br />
         <button type="submit">Submit</button>
       </form>
