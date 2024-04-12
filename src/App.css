@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+} */
+body{
+  /* background-color: #0093E9; */
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+background-repeat: no-repeat;
+background-position: cover;
+background-size: 100% 250%;
 }

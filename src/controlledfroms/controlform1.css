@@ -1,0 +1,37 @@
+#border{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 350px;
+    width: 25%;
+    margin-top: 100px;
+    background-image: url(img1);
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+input{
+    padding: 6px 30px 6px 30px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 22ox;
+}
+input::placeholder{
+    font-size: 16px;
+    color: rgb(111, 88, 59)
+}
+button{
+    padding: 6px 70px 6px 70px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+}
+h2{
+    color: white;
+}
