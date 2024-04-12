@@ -54,7 +54,7 @@ const ControlledFrom = () => {
           placeholder="Enter your Name"
         />
         <br />
-        {userErr && <span style={{ color: "white" }}>Enter valid name</span>}
+        {userErr && <span style={{ color: "white", padding:"0px" , marginBottom:"-5px" }}>Enter valid name</span>}
         <br />
         <input
           type="email"
@@ -71,7 +71,7 @@ const ControlledFrom = () => {
           placeholder="Enter your Password"
         />
         <br />
-        {passErr && <span style={{ color: "white" }}>Enter valid password</span>}
+        {passErr && <span style={{ color: "white",  padding:"0px", marginBottom:"-5px"}}>Enter valid password</span>}
         <br />
         <button type="submit">Submit</button>
       </form>
