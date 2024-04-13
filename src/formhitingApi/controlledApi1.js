@@ -3,31 +3,42 @@ import { useState } from "react";
 
 //state for storeing the data and updation 
 const ControledApi = () => {
+
     const[form,setform]=useState(
         {
             username:null,
             password:null
         }
     )
-//handling the changes for fields 
+//handling the changes form fields 
     const handleChanges=(e)=>{
       const{value,name}=e.target
       console.log(value,name)
+
+      setform(prevState=>({
+        ...prevState,[name]:value
+      }))
     
 
     }
 //this section is for handling the sumbit button 
     const submitHandler=(e)=>{
         e.preventDefault()
-     
+        const{username,password}=form
+       const Details={
+        username:username,
+        password:password
+       }
+       HitApi(Details)
+       console.log(Details)
 
     }
 
 //this section is for hitting the Api form the server
-    const HitApi=async()=>{
-       const result=await axios.get("https://dummyjson.com/products")
+    const HitApi=async(userInfo)=>{
+       const result=await axios.post("https://dummyjson.com/users")
+       console.log(result.userInfo)
        
-
     }
 
   return (
@@ -39,10 +50,10 @@ const ControledApi = () => {
         <br />
         <label>Password:</label>
         <br />
-        <input type="text" id="lname" value={form.username}  onChange={handleChanges} name="password"/>
+        <input type="password" id="lname" value={form.password}  onChange={handleChanges} name="password"/>
         <br />
         <br />
-        <input type="submit" defaultValue="Submit" />
+        <input type="submit" />
       </form>
     </div>
   );
