@@ -1,0 +1,24 @@
+.card{
+    border: 2px solid black;
+    margin-top: 50px;
+    margin-left: 540px;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+    border-radius:10px;
+}
+button{
+    padding: 8px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
