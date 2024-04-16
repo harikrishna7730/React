@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import "./useEffect.css"
+
 
 const Example=()=>{
   const[productList,setproductList]=useState([])
