@@ -44,14 +44,14 @@ const Example=()=>{
         productList.map(eachitem=>{ 
           const{id}=eachitem
           return(
-            <button value={id} onClick={Handleclick}>{id}</button>
+            <button key={id} value={id} onClick={Handleclick}>{id}</button>
            
           )
       })
       }
       <div className="card">
-       <h1>{eachobj?.title}</h1>
-       <img src={eachobj?.thumbnail} alt="title" width={300}/>
+       <h1>{eachobj.title}</h1>
+       <img src={eachobj.thumbnail} alt="title" width={300}/>
        <h2>Price:{eachobj.price}</h2>
        </div>
         </>
