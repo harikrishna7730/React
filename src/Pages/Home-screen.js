@@ -1,10 +1,13 @@
+import Carousels from "../components/carosels"
+import Header from "../components/header-navbar"
 
 
 const HomeScreen=()=>{
     return(
         <>
-        <h1>wellcome to home page</h1>
-        
+          <Header/>
+        {/* <h1 style={{textAlign:"center"}}>wellcome to home page</h1> */}
+        <Carousels/>
         </>
     )
 }
