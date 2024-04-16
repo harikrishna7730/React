@@ -20,7 +20,7 @@ function Header() {
             <Link  id='btn'>
             Form
             </Link>
-            <Link  id='btn'>
+            <Link to={"/products"} id='btn'>
             ProductListing
             </Link>
             <Link  id='btn'>
