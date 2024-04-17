@@ -1,9 +1,12 @@
-import Example from "../components/products"
+//import Example from "../components/products"
+
+import FetchData from "../components/products"
 
 const Listing=()=>{
     return(
         <>
-        <Example/>
+        {/* <Example/> */}
+        <FetchData/>
         </>
     )
 }
