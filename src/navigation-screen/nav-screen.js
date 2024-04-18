@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Navbar from "../components/navbar"
+import NavbarSection from "../components/navbar"
+
 
 const NavigationScreen=()=>{
     return (
         <>
         <BrowserRouter>
         <Routes>
-            <Route path="/" Component={Navbar}   />
+            <Route path="/"Component={NavbarSection}/>
             <Route/>
             <Route/>
             <Route/>

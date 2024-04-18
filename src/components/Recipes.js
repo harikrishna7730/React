@@ -45,7 +45,7 @@ const FetchData=()=>{
                         
                     </ul> */}
                    <Link>
-                     
+                       See more
                    </Link>
                     </div>
                 )
