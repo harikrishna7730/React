@@ -5,6 +5,7 @@ import InvalidScreen from "../Pages/invalid-screen"
 import Listing from "../Pages/productsList"
 
 
+
 const Navigation=()=>{
     return(
         <BrowserRouter>
@@ -12,7 +13,7 @@ const Navigation=()=>{
             <Route path="/" Component={HomeScreen}/>
             <Route path="/contact" Component={ContactScreen}/>
             <Route path="*" Component={InvalidScreen}/>
-            <Route path=":brand/:productsid/" Component={Listing} />
+            <Route path=":Recipes" Component={Listing} />
             
          </Routes>
         </BrowserRouter>
