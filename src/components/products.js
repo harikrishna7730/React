@@ -1,6 +1,8 @@
 
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import "./header.css"
 
 
 const FetchData=()=>{
@@ -23,12 +25,17 @@ const FetchData=()=>{
     <>
       {
         recipe.map(eachItem=>{
-          const{image,name}=eachItem
+          const{image,name,rating,id}=eachItem
           return(
-            <div className="">
-            <h2>{eachItem.name}</h2>
-           <img src={eachItem.image} alt="helloworld" width={300}/>
-           <h2>{eachItem.price}</h2>
+            <div className="card">
+            <h2>Name:{name}</h2>
+           <img src={image} alt="helloworld" width={300}/>
+           <h2>Rating:{rating}</h2>
+            <button>
+              <Link  to={`${name}/${id}`}>
+                 Click here to see more
+              </Link>
+            </button>
             </div>
           )
         })

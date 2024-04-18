@@ -12,7 +12,8 @@ const Navigation=()=>{
             <Route path="/" Component={HomeScreen}/>
             <Route path="/contact" Component={ContactScreen}/>
             <Route path="*" Component={InvalidScreen}/>
-            <Route path="/products" Component={Listing} />
+            <Route path=":brand/:productsid/" Component={Listing} />
+            
          </Routes>
         </BrowserRouter>
     )

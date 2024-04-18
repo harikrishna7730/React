@@ -5,3 +5,9 @@
     text-decoration: none;
     margin-left: 30px;
 }
+.card{
+    border: 8px solid black;
+    height: 300px;
+    width: 30%;
+    margin: 10px;
+}
