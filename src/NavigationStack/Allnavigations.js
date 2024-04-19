@@ -2,19 +2,44 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomeScreen from "../pages/homeScreen"
 import ContactScreen from "../pages/contactScreen"
 import AboutScreen from "../pages/aboutscreen"
-import { createContext } from "react"
+import { createContext, useState } from "react"
 
 
-const changeColor=createContext()
+export const changeings=createContext()
 
 const Navigations=()=>{
+
+  //for changing the color
+  const[color,setcolor]=useState("black")
+
+  const changeColor=()=>{
+    setcolor("red")
+ }
+
+ //for changeing the text
+
+  const[data,setData]=useState({
+    name:"hari"
+  })
+
+  const ChangeData=()=>{
+    setData({...data,name:"Abhi"})
+  }
+
+
   
  
 
     return(
-      <changeColor.Provider value={{
-        backgoundColor:"red"
+      <changeings.Provider value={{
+        data,
+        ChangeData,
+        color,
+        changeColor
+
       }} >
+
+
         <BrowserRouter>
         <Routes>
             <Route path="/" Component={HomeScreen}/>
@@ -22,7 +47,9 @@ const Navigations=()=>{
             <Route path="/About"  Component={AboutScreen} />
         </Routes>
         </BrowserRouter>
-        </changeColor.Provider>
+
+
+        </changeings.Provider>
         
 
     )
