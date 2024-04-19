@@ -10,6 +10,10 @@ export const changeings=createContext()
 
 const Navigations=()=>{
 const[login,setlogin]=useState(false)
+
+const changeState=()=>{
+  setlogin(true)
+}
   //for changing the color
   const[color,setcolor]=useState("black")
 
@@ -36,8 +40,9 @@ const[login,setlogin]=useState(false)
         data,
         ChangeData,
         color,
-        changeColor
-
+        changeColor,
+       login,
+       changeState
       }} >
 
        
@@ -52,15 +57,12 @@ const[login,setlogin]=useState(false)
         </Routes>
         </BrowserRouter>
         :
-        // <BrowserRouter>
-        //    <Routes>
-        //     <Route  path="/Login" Component={Loginpage}/>
-        //    </Routes>
-        // </BrowserRouter>
-        // <h1> helloworkd</h1>
-        <Loginpage/>
+        <BrowserRouter>
+           <Routes>
+            <Route  path="/" Component={Loginpage}/>
+           </Routes>
+        </BrowserRouter>
         }
-
 
         </changeings.Provider>
         
