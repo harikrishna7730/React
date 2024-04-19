@@ -44,6 +44,7 @@ const Example = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userInfo),
     });
+    
     const result1 = await result.json();
     console.log(result1);
     if(result1.message){
@@ -88,7 +89,7 @@ const Example = () => {
       </form>
       {Error && <h1>{form.message}</h1>}
       {
-          login  && <h1>welcome ${form.username} </h1>
+          login  && <h1>welcome {form.username}</h1>
         }
        
     </>
