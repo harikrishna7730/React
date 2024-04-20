@@ -3,17 +3,18 @@ import { useContext, useState } from "react";
 import { changeings } from "../NavigationStack/Allnavigations";
 
 const Loginpage = () => {
-    const {login,setlogin}=useContext(changeings)
-    const[form,setform]=useState({
+    const {changeState}=useContext(changeings)
+    const[formErr,setformErr]=useState("")
+        const[form,setform]=useState({
         username:"",
         password:""
     })
 
     const Handlechanges=(e)=>{
-    //   const username=e.target.value;
-    //   const password=e.target.value;
-    //   console.log(username)
-    //   console.log(password)
+      // const username=e.target.value;
+      // const password=e.target.value;
+      // console.log(username)
+      // console.log(password)
       const{name,value}=e.target
       console.log(value,name)
 
@@ -21,6 +22,7 @@ const Loginpage = () => {
       ...prevState,[name]:value
     }))
     }
+    
 
     const submitHandle=async(e)=>{
       e.preventDefault()
@@ -31,32 +33,19 @@ const Loginpage = () => {
        }
        console.log(userDetails)
        try{
-        const response=await ApiHitting(userDetails)
-        console.log(response)
-       }catch(err){
-        throw err
+       const result=await axios.post("https://dummyjson.com/auth/login",userDetails)
+       console.log(result.data)
+       if(result.data.message){
+        setformErr(result.data.message)
+       }else{
+        changeState()
        }
-    }
-
-
-     //api hitting form the server
-
-     const ApiHitting=async(userInfo)=>{
-      try{
-      const result=await axios.post("https://dummyjson.com/auth/login",userInfo)
-      console.log(result.data)
-      if(result.message){
-        setlogin(false)
-      }else{
-        setlogin(true)
-      }
+       }
+       catch(err){
+        console.error(err)
+       }
       
-      }catch(err){
-        throw err
-      }
-     
-     }
-      
+    }      
 
   return (
     <>
@@ -82,16 +71,20 @@ const Loginpage = () => {
               className="form-control"
               placeholder="Enter password"
               name="password"
-              value={form.username}
+              value={form.password}
               onChange={Handlechanges}
             />
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-        </form>
+        </form> 
       </div>
+      {
+        formErr && <span>{formErr}</span>
+  
+      }
     </>
   );
-};
+}
 export default Loginpage;
