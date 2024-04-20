@@ -1,11 +1,10 @@
+import Allnavigations from "./NavigationStack/Allnavigations";
 
 
 function App() {
   return (
     <div className="App">
-      useReducerExample
-      <useReducerExample></useReducerExample>
-
+     <Allnavigations/>
     </div>
   );
 }
