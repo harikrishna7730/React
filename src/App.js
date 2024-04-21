@@ -1,10 +1,12 @@
-import Allnavigations from "./NavigationStack/Allnavigations";
+import Allrouters from "./NavigationStack/Allnavigations";
+
+
 
 
 function App() {
   return (
     <div className="App">
-     <Allnavigations/>
+    <Allrouters/>
     </div>
   );
 }

@@ -25,6 +25,9 @@ function NavbarSection() {
             <Link to={"/About"} style={link}>
               About
             </Link>
+            <Link to={"/cardItemss"} style={link}>
+              cardItems
+            </Link>
           </Nav>
         </Container>
       </Navbar>
