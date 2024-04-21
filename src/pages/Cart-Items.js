@@ -23,7 +23,7 @@ const CardItemss = () => {
                     <div key={idCategory} className="card">
                     <h2>Name: {strCategory}</h2>
                     <img src={strCategoryThumb} alt="title" width={250}/>
-                    <button onClick={HandleDelete}>Delete</button>
+                    <button onClick={()=>HandleDelete}>Delete</button>
                     </div>
                 )
             })
