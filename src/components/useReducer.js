@@ -36,26 +36,48 @@ import { useReducer } from "react"
  }
 
  //useReducer --->component
-const useReducerExample=()=>{
+const UseReducerExample=()=>{
 
     const[currentvalue,dispatchvalue]=useReducer(reducerFuction,InitialValue)
+
+
+    const incrementAge=()=>{
+        dispatchvalue({type:"increment_age"})
+    }
+    const decrementAge=()=>{
+        dispatchvalue({ type:"decrement_age"})
+    }
+    const ResetCount=()=>{
+        dispatchvalue({type:"reset_count"})
+    }
+    const incrementCount=()=>{
+         dispatchvalue({ type:"increment_count"})
+     }
+     const DecrementCount=()=>{
+         dispatchvalue({type:"decrement_count" })
+     }
+
+     const ChangeName=()=>{
+         dispatchvalue({type:"change_name"})
+     }
+     
 
     return(
         <>
         <h1>{currentvalue.name}</h1>
-        <button>change Name</button>
+        <button onClick={ChangeName}>change Name</button>
         <br></br>
         <p></p>
         <h1>{currentvalue.age}</h1>
-        <button>increment age</button> 
-        <button>decrement age</button>
+        <button onClick={incrementAge}>increment age</button> 
+        <button onClick={decrementAge}>decrement age</button>
         <br></br>
         <p></p>
         <h1>{currentvalue.count}</h1>
-        <button>increment count</button>
-        <button>decrement count</button>
-        <button>Reset count</button>
+        <button onClick={incrementCount}>increment count</button>
+        <button onClick={DecrementCount}>decrement count</button>
+        <button onClick={ResetCount}>Reset count</button>
         </>
     )
 }
-export default useReducerExample
+export default UseReducerExample

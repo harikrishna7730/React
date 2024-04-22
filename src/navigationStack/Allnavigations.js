@@ -19,7 +19,8 @@ const Allrouters=()=>{
         <>
         <DataShare.Provider value={{
             carditems,
-            AddtoCard
+            AddtoCard,
+            setcardItems
         }}>
         <BrowserRouter>
         <Routes>
