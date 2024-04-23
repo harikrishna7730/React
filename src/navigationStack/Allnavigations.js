@@ -11,8 +11,17 @@ export const DataShare=createContext()
 const Allrouters=()=>{
     const[carditems,setcardItems]=useState([])
 
-    const AddtoCard=(eachItem)=>{
-        setcardItems([...carditems,eachItem])
+
+
+    const AddtoCard=(eachobj)=>{
+        const result=carditems.find(eachItems=>{
+            return eachItems.id===eachobj.id
+        })
+        if(result){
+            alert("Item is already exists")
+        }else{
+            setcardItems([...carditems,eachobj])
+        }
     }
 
     return(

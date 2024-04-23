@@ -3,9 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import CardItemss from '../pages/Cart-Items';
+import { DataShare } from '../NavigationStack/Allnavigations';
+import { useContext } from 'react';
 
 function NavbarSection() {
-  // const{carditems}=useContext(DataShare)
+  const{carditems}=useContext(DataShare)
 
     const link={
       marginLeft:"30px",
@@ -28,7 +31,7 @@ function NavbarSection() {
               About
             </Link>
             <Link to={"/cardItemss"} style={link}>
-              cardItems
+              cardItems{carditems.length}
             </Link>
           </Nav>
         </Container>
