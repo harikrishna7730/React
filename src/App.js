@@ -1,10 +1,15 @@
+import { Provider } from "react-redux";
+import NavigationStack from "./navigationStack/navigationStack";
+import { reduxStore } from "./redux/store/store";
 
-import HomeScreen from './pages/homescreen';
+
 
 function App() {
   return (
     <div className="App">
-     <HomeScreen/>
+      <Provider store={reduxStore}>
+    <NavigationStack/>
+    </Provider>
     </div>
   );
 }
