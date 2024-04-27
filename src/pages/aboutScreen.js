@@ -19,17 +19,18 @@ const AboutPage=()=>{
         <NavbarSection/>
         <h1>About page....</h1>
         <button onClick={Addtodos}>Add todos</button>
-        {
+        {/* {
             todos.map(todos=>{
             return(
                 <>
                 <h1>{todos}</h1>
                
-                {/* <h1>count:{item}</h1> */}
+                <h1>count:{todos}</h1>
                 </>
             )
             })
-        }
+        } */}
+
         </>
     )
 }

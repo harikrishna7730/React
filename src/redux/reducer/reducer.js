@@ -5,7 +5,7 @@ const initialState={
 }
 
 const todoReducer=(state=initialState,action)=>{
-     switch(action){
+     switch(action.type){
 
         case "ADD_TODO":
         return {...state,todos:[...state.todos,"newTodoo"]}
