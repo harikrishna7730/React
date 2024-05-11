@@ -10,6 +10,13 @@ import ParentComponent from './AllExampleComponents.js/stateLifting';
 import ExampleReducer from './AllExampleComponents.js/ValidationQuestions/useReducerExample2';
 import Example1 from './AllExampleComponents.js/ValidationQuestions/usecallback1';
 import TodosList from './AllExampleComponents.js/ValidationQuestions/todoslist';
+import Factorial from './AllExampleComponents.js/factorialExample';
+
+import ParentCom from './AllExampleComponents.js/purecomponents/parent';
+import Component from './task-03-may/c-will-unmount';
+import KeyboardEventHandler from './task-03-may/unmountEx-2';
+import Togglepage from './AllExampleComponents.js/useStateExample-sir.js/toggle';
+import Stage1 from './AllExampleComponents.js/propdrilling/prop1';
 
 function App() {
   return (
@@ -22,9 +29,15 @@ function App() {
       <Timer/>
       <ParentComponent/>
       <Counter/> */}
-      <ExampleReducer/>
+      {/* <ExampleReducer/> */}
       {/* <Example1/> */}
-      <TodosList/>
+      {/* <TodosList/>
+      <Factorial/> */}
+      {/* <ParentCom/> */}
+      <Togglepage/>
+      {/* <Component/> */}
+      {/* <KeyboardEventHandler/> */}
+      {/* <Stage1/> */}
     </div>
   );
 }

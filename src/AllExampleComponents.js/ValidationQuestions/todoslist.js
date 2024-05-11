@@ -59,10 +59,18 @@ const TodosList=()=>{
     }
 
     const handledelete=useCallback((index)=>{
-       const result=[...todos]
-        result.splice(index,1)
-        settodos(result)
+      const result=todos.filter((item)=>item.index!==index)
+    //   const updatedTodos = todos.filter((item, idx) => idx !== index);
+      settodos(result)
+    
     },[todos])
+
+    const handleupdate=(index)=>{
+        const update=[...todos]
+       update[index]="newTodos"
+       settodos(update)
+
+    }
         return(
         <>
         <h1>todosListing</h1>
@@ -72,7 +80,6 @@ const TodosList=()=>{
         onChange={handleinputchange}
         />
         <button onClick={Addtodos}> Add todos</button>
-
         <br></br>
 
         <ul>
@@ -81,6 +88,7 @@ const TodosList=()=>{
                     return( <>
                     <li key={index}>{item}</li>
                     <button onClick={()=>handledelete(index)}>Delete</button>
+                    <button onClick={()=>handleupdate(index)}>Update</button>
                     </>
                 )
                 })
