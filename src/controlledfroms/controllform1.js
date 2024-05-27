@@ -18,7 +18,6 @@ const ControlledFrom = () => {
     }
   };
 
-  
   const handlepassword = (e) => {
   
     const password = e.target.value;
